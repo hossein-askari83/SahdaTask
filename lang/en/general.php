@@ -7,4 +7,7 @@ return [
     "fetched_successfully" => ":model fetched successfully",
 
 
+    //Errors
+    "taggable_id_not_found" => "no :model find with id :id"
+
 ];

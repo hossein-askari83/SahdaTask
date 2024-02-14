@@ -42,9 +42,9 @@ Route::prefix('v1')->group(function () {
     //Tag Routes
     Route::prefix('tag')->group(function () {
         Route::controller(TagController::class)->group(function () {
-            Route::post('/', 'store');
-            Route::get('/{id}', 'show');
-            Route::get('/', 'index');
+            Route::post('/', 'store')->name('tag.store');
+            Route::get('/{id}', 'show')->name('tag.show');
+            Route::get('/', 'index')->name('tag.index');
         });
     });
 });

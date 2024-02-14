@@ -20,8 +20,13 @@ class TaggableIDRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (isset($this->taggable_type)) {
-            $taggable = App::make("App\\Models\\$this->taggable_type");
-            $taggable::findorFail($value);
+            try {
+                $taggable = App::make("App\\Models\\$this->taggable_type");
+                $taggable::findorFail($value);
+            } catch (\Throwable $th) {
+                $message = __('general.taggable_id_not_found', ['model' => $this->taggable_type, 'id' => $value]);
+                $fail($message);
+            }
         }
     }
 }
