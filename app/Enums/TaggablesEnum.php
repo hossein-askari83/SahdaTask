@@ -7,8 +7,8 @@ use App\Models\Book;
 
 enum TaggablesEnum: string
 {
-    case Book = Book::class;
-    case Author = Author::class;
+    case Book = "Book";
+    case Author = "Author";
 
     public static function values(): array
     {

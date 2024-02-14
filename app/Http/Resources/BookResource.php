@@ -21,7 +21,6 @@ class BookResource extends JsonResource
             'price' => $this->price,
             'updated_at' => $this->updated_at,
             'created_at' => $this->created_at,
-
             'author' => AuthorResource::make(
                 $this->whenLoaded('author')
             ),

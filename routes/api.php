@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\V1\AuthorController;
 use App\Http\Controllers\API\V1\BookController;
+use App\Http\Controllers\API\V1\TagController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,15 @@ Route::prefix('v1')->group(function () {
     //Author Routes
     Route::prefix('author')->group(function () {
         Route::controller(AuthorController::class)->group(function () {
+            Route::post('/', 'store');
+            Route::get('/{id}', 'show');
+            Route::get('/', 'index');
+        });
+    });
+
+    //Tag Routes
+    Route::prefix('tag')->group(function () {
+        Route::controller(TagController::class)->group(function () {
             Route::post('/', 'store');
             Route::get('/{id}', 'show');
             Route::get('/', 'index');

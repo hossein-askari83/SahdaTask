@@ -6,9 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AuthorDTO
 {
-    public function __construct(
-        public readonly string|null $name,
-    ) {
+    public function __construct(public readonly string|null $name)
+    {
     }
 
     public static function fromRequest(FormRequest $request): AuthorDTO
