@@ -2,9 +2,7 @@
 
 namespace App\DataTransferObjects;
 
-use App\Http\Requests\Book\StoreBookRequest;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 
 class BookDTO
 {

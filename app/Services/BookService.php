@@ -5,7 +5,6 @@ namespace App\Services;
 use App\DataTransferObjects\BookDTO;
 use App\Models\Book;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Log;
 
 class BookService
 {
@@ -30,7 +29,7 @@ class BookService
     {
         return Book::findOrFail($id);
     }
-    public function update(BookDTO $dto, int $id)
+    public function update(BookDTO $dto, int $id): Book
     {
         $book = Book::findOrFail($id);
         return tap($book)->update(array_filter((array)$dto));
