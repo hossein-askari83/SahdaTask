@@ -23,17 +23,17 @@ Route::prefix('v1')->group(function () {
     //Book Routes
     Route::prefix('book')->group(function () {
         Route::controller(BookController::class)->group(function () {
-            Route::post('/', 'store');
-            Route::put('/{id}', 'update');
-            Route::get('/{id}', 'show');
-            Route::get('/', 'index');
+            Route::post('/', 'store')->name('book.store');
+            Route::get('/', 'index')->name('book.index');
+            Route::put('/{id}', 'update')->name('book.update');
+            Route::get('/{id}', 'show')->name('book.show');
         });
     });
 
     //Author Routes
     Route::prefix('author')->group(function () {
         Route::controller(AuthorController::class)->group(function () {
-            Route::post('/', 'store');
+            Route::post('/', 'store')->name('author.store');
             Route::get('/{id}', 'show');
             Route::get('/', 'index');
         });
