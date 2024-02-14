@@ -34,8 +34,8 @@ Route::prefix('v1')->group(function () {
     Route::prefix('author')->group(function () {
         Route::controller(AuthorController::class)->group(function () {
             Route::post('/', 'store')->name('author.store');
-            Route::get('/{id}', 'show');
-            Route::get('/', 'index');
+            Route::get('/{id}', 'show')->name('author.show');
+            Route::get('/', 'index')->name('author.index');
         });
     });
 
