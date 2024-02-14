@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class BookDTO
 {
     public function __construct(
-        public readonly string $title,
-        public readonly int $author_id,
-        public readonly int $price,
+        public readonly string|null $title,
+        public readonly int|null $author_id,
+        public readonly int|null $price,
     ) {
     }
 

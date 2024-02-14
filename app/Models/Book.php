@@ -14,4 +14,13 @@ class Book extends Model
         'author_id',
         'price',
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+    public function tags()
+    {
+        return $this->morphMany(Tag::class, 'taggable');
+    }
 }

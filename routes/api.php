@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     Route::prefix('book')->group(function () {
-        Route::post('/', [BookController::class, 'store']);
+        Route::controller(BookController::class)->group(function () {
+            Route::post('/', 'store');
+            Route::put('/{id}', 'update');
+            Route::get('/{id}', 'show');
+            Route::get('/', 'index');
+        });
     });
 });
