@@ -18,11 +18,10 @@ class TagFactory extends Factory
     public function definition(): array
     {
         $taggable_type = fake()->randomElement(TaggablesEnum::values());
-        $taggable = $taggable_type::factory()->create();
         return [
             'text' => fake()->word(),
-            'taggable_type' => $taggable_type,
-            'taggable_id' => $taggable->id,
+            'taggable_type' => class_basename($taggable_type),
+            'taggable_id' => $taggable_type::inRandomOrder()->first()->id,
         ];
     }
 }
